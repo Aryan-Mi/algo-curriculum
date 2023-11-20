@@ -1,4 +1,6 @@
 @tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   *,
@@ -13,17 +15,23 @@
   }
 }
 
-@tailwind components;
-@tailwind utilities;
-
 :root {
-  --foreground: rgb(0, 0, 0);
-  --background-start: rgb(214, 219, 220);
-  --background-end: rgb(255, 255, 255);
+  --color-text: 33 28 28;
+  --color-background: 245 245 245;
+  --color-primary: 153 0 0;
+  --color-secondary: 238 214 206;
+  --color-accent: 36 185 240;
+}
+
+:root[class~='dark'] {
+  --color-text: 227 222 222;
+  --color-background: 10 10 10;
+  --color-primary: 255 102 102;
+  --color-secondary: 49 25 17;
+  --color-accent: 15 165 219;
 }
 
 body {
   min-height: 100vh;
-  color: var(--foreground);
   background-color: rgb(248 250 252);
 }

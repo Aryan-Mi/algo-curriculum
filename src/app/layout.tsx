@@ -15,8 +15,8 @@ interface RootProps {
 
 export default function RootLayout({ children }: RootProps) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="">
+      <body className={`${inter.className} bg-background`}>{children}</body>
     </html>
   )
 }
