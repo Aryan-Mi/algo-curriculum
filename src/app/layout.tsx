@@ -2,6 +2,10 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/navbar'
+// FA Icons
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,7 +21,7 @@ interface RootProps {
 export default function RootLayout({ children }: RootProps) {
   return (
     <html lang="en" className="">
-      <body className={`${inter.className} bg-background`}>
+      <body className={`${inter.className} bg-background text-text`}>
         <Navbar />
         {children}
       </body>

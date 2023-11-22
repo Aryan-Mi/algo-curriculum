@@ -1,8 +1,8 @@
 export default function Home() {
   return (
-    <main className="">
+    <main>
       <section>
-        <div className="text-3xl text-text">Algorithm Documentation</div>
+        <div className="text-3xl">Algorithm Documentation</div>
       </section>
     </main>
   )
