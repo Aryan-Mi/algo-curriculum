@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
+import { Inter } from 'next/font/google'
+import { Providers } from '@/app/providers'
 import Navbar from '@/components/navbar'
 // FA Icons
 import { config } from '@fortawesome/fontawesome-svg-core'
@@ -20,10 +21,12 @@ interface RootProps {
 
 export default function RootLayout({ children }: RootProps) {
   return (
-    <html lang="en" className="">
+    <html suppressHydrationWarning lang="en">
       <body className={`${inter.className} bg-background text-text`}>
-        <Navbar />
-        {children}
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
       </body>
     </html>
   )
