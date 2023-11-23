@@ -19,7 +19,7 @@ export default function Navbar({}) {
   }
 
   return (
-    <header className="border-b-2 border-b-text/10 bg-background">
+    <header className="sticky top-0 z-50 w-full border-b-2 border-b-text/10 bg-background bg-opacity-95">
       <nav className="mx-32 flex items-center justify-between py-3">
         <div className="flex items-center">
           <Logo className="text-accent" width="36" height="36" />
