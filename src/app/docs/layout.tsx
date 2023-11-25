@@ -6,11 +6,9 @@ interface LayoutProps {
 
 export default function RootLayout({ children }: LayoutProps) {
   return (
-    <main className="flex h-[350vh] bg-secondary/40">
+    <main className="flex h-[350vh] bg-background">
       <Sidebar />
-      <section className="flex-[2_2_0%] text-3xl outline outline-2 outline-lime-500">
-        {children}
-      </section>
+      <section className="flex-[2_2_0%] text-3xl">{children}</section>
     </main>
   )
 }

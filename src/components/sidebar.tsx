@@ -9,9 +9,12 @@ export default function Sidebar({}: Props) {
           return (
             <li
               key={lesson.title}
-              className="rounded-md py-1 pl-2 text-base font-medium text-text/60 transition-colors hover:bg-accent/10 hover:text-blue-500"
+              className="flex text-base rounded-md overflow-hidden"
             >
-              <Link className="" href={`/docs/${lesson.href}`}>
+              <Link
+                className="w-full py-1 pl-2 font-medium text-text/60 transition-colors hover:bg-accent/10 hover:text-blue-500"
+                href={`/docs/${lesson.href}`}
+              >
                 {lesson.title}
               </Link>
             </li>
