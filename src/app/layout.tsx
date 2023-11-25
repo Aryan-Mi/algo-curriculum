@@ -22,7 +22,7 @@ interface RootProps {
 export default function RootLayout({ children }: RootProps) {
   return (
     <html suppressHydrationWarning lang="en">
-      <body className={`${inter.className} bg-background text-text`}>
+      <body className={`${inter.className}`}>
         <Providers>
           <Navbar />
           {children}
