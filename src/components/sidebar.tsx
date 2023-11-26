@@ -1,23 +1,24 @@
+import { Lesson } from 'contentlayer/generated'
 import Link from 'next/link'
 type Props = {
-  lessonLinks: { ref: string; link: string }[]
+  lessons: Lesson[]
 }
 
-export default function Sidebar({ lessonLinks }: Props) {
+export default function Sidebar({ lessons }: Props) {
   return (
     <aside className="sticky top-20 h-min w-80">
       <ol className="grid gap-4 px-4">
-        {lessonLinks.map((lesson) => {
+        {lessons.map((lesson) => {
           return (
             <li
-              key={lesson.ref}
+              key={lesson._id}
               className="flex text-base rounded-md overflow-hidden"
             >
               <Link
                 className="w-full py-1 pl-2 font-medium text-text/60 transition-colors hover:bg-accent/10 hover:text-blue-500"
-                href={lesson.link}
+                href={lesson.url}
               >
-                {lesson.ref}
+                {lesson.title}
               </Link>
             </li>
           )
@@ -26,12 +27,3 @@ export default function Sidebar({ lessonLinks }: Props) {
     </aside>
   )
 }
-
-// ! TEMPORARY STATIC DATA
-const sidebar_lessons = [
-  { title: 'General Info', href: 'general-info' },
-  { title: 'Divide & conquer', href: 'divide-and-conquer' },
-  { title: 'Dynamic Programming', href: 'dynamic-programming' },
-  { title: 'Network Flow', href: 'network-flow' },
-  { title: 'Amortized-Analysis', href: 'amortized-analysis' },
-]

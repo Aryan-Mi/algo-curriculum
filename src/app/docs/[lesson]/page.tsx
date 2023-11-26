@@ -1,37 +1,28 @@
-// import LessonTitle from './lesson-title'
-import { allLessons, Lesson } from 'contentlayer/generated'
-import { allLessonsAsc } from '@app/utils/content'
-import { compareAsc, format, parseISO } from 'date-fns'
-import Link from 'next/link'
+// import { getLesson } from '@app/utils/content'
+import { formatDate, getLesson } from '@/app/utils/content'
+import { Lesson } from 'contentlayer/generated'
 
-type Props = {}
+type Props = {
+  params: { lesson: string }
+}
 
-export default function Lesson({}: Props) {
+export default function Lesson({ params }: Props) {
+  const lesson = getLesson(params.lesson)
   return (
     <>
-      {/* <LessonTitle /> */}
-      <div>
-        {allLessonsAsc.map((lesson, idx) => (
-          <LessonCard key={idx} {...lesson} />
-        ))}
-      </div>
+      <LessonCard lesson={lesson} />
     </>
   )
 }
 
-function LessonCard(lesson: Lesson) {
+function LessonCard({ lesson }: { lesson: Lesson }) {
   return (
-    <div className="mb-8">
-      <h2 className="mb-1 text-xl">
-        <Link
-          href={lesson.url}
-          className="text-blue-700 hover:text-blue-900 dark:text-blue-400"
-        >
-          {lesson.title}
-        </Link>
+    <div className="mt-4">
+      <h2 className="mb-1 text-xl text-blue-700 dark:text-blue-400">
+        {lesson.title}
       </h2>
-      <time dateTime={lesson.date} className="mb-2 block text-xs text-gray-600">
-        {format(parseISO(lesson.date), 'LLLL d, yyyy')}
+      <time dateTime={lesson.date} className="mb-2 block text-xs text-text/70">
+        {formatDate(lesson.date)}
       </time>
       <div
         className="text-sm [&>*]:mb-3 [&>*:last-child]:mb-0"
