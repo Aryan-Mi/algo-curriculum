@@ -1,21 +1,23 @@
 import Link from 'next/link'
-type Props = {}
+type Props = {
+  lessonLinks: { ref: string; link: string }[]
+}
 
-export default function Sidebar({}: Props) {
+export default function Sidebar({ lessonLinks }: Props) {
   return (
     <aside className="sticky top-20 h-min w-80">
       <ol className="grid gap-4 px-4">
-        {sidebar_lessons.map((lesson) => {
+        {lessonLinks.map((lesson) => {
           return (
             <li
-              key={lesson.title}
+              key={lesson.ref}
               className="flex text-base rounded-md overflow-hidden"
             >
               <Link
                 className="w-full py-1 pl-2 font-medium text-text/60 transition-colors hover:bg-accent/10 hover:text-blue-500"
-                href={`/docs/${lesson.href}`}
+                href={lesson.link}
               >
-                {lesson.title}
+                {lesson.ref}
               </Link>
             </li>
           )

@@ -1,19 +1,17 @@
-import LessonTitle from './lesson-title'
+// import LessonTitle from './lesson-title'
 import { allLessons, Lesson } from 'contentlayer/generated'
-import { compareDesc, compareAsc, format, parseISO } from 'date-fns'
+import { allLessonsAsc } from '@app/utils/content'
+import { compareAsc, format, parseISO } from 'date-fns'
 import Link from 'next/link'
 
 type Props = {}
 
 export default function Lesson({}: Props) {
-  const lessons = allLessons.sort((a, b) =>
-    compareAsc(new Date(a.date), new Date(b.date)),
-  )
   return (
     <>
       {/* <LessonTitle /> */}
       <div>
-        {lessons.map((lesson, idx) => (
+        {allLessonsAsc.map((lesson, idx) => (
           <LessonCard key={idx} {...lesson} />
         ))}
       </div>
