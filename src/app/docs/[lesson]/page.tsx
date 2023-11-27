@@ -6,13 +6,14 @@ type Props = {
   params: { lesson: string }
 }
 
+export const generateMetadata = ({ params }: Props) => {
+  const lesson = getLesson(params.lesson)
+  return { title: lesson.title }
+}
+
 export default function Lesson({ params }: Props) {
   const lesson = getLesson(params.lesson)
-  return (
-    <>
-      <LessonCard lesson={lesson} />
-    </>
-  )
+  return <LessonCard lesson={lesson} />
 }
 
 function LessonCard({ lesson }: { lesson: Lesson }) {
