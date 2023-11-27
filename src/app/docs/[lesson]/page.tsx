@@ -1,8 +1,8 @@
 // import { getLesson } from '@app/utils/content'
 import { formatDate, getLesson } from '@/app/utils/content'
 import { Lesson, allLessons } from 'contentlayer/generated'
-import { MDXComponents } from 'mdx/types'
 import { useMDXComponent } from 'next-contentlayer/hooks'
+import mdxComponents from '@components/markdown'
 
 type Props = {
   params: { lesson: string }
@@ -37,14 +37,4 @@ function LessonCard({ lesson }: { lesson: Lesson }) {
       <MDXContent components={mdxComponents} />
     </div>
   )
-}
-
-// TODO: refactor and move
-const mdxComponents: MDXComponents = {
-  h1: ({ children }) => (
-    <h1 className="font-bold text-xl text-blue-700">{children}</h1>
-  ),
-  h2: ({ children }) => (
-    <h2 className="font-bold text-lg text-blue-600">{children}</h2>
-  ),
 }
